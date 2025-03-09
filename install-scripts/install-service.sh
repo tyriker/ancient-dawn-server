@@ -7,15 +7,18 @@ else
 
     echo "[Unit]
     Description=Minecraft Server
-    After=network.target
+    After=network-online.target
+    Wants=network-online.target
 
     [Service]
+    Type=forking
     User=mcserver
+    #Assume that the service is running after main process exits with code 0
+    RemainAfterExit=yes
     ExecStart=/home/mcserver/mcserver start
-    Restart=always
+    ExecStop=/home/mcserver/mcserver stop
+    Restart=no
     WorkingDirectory=/home/mcserver
-    StandardOutput=inherit
-    StandardError=inherit
 
     [Install]
     WantedBy=multi-user.target" > $SERVICE_FILE
