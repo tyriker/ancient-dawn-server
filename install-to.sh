@@ -16,7 +16,7 @@ echo "execute installs on ${remote_host}"
 ssh -t $remote_host "sudo stdbuf -oL -eL bash ./install.sh"
 
 echo "delete installs on ${remote_host}"
-ssh $remote_host "rm install.sh install-linuxgsm.sh install-java.sh install-modpack.sh"
+ssh $remote_host "rm install.sh install-linuxgsm.sh install-java.sh install-modpack.sh install-service.sh"
 ssh $remote_host "rm -rf server-files"
 
 echo "exit with great success"

@@ -78,5 +78,8 @@ cd ${current_dir}
 chown -R mcserver:mcserver /home/mcserver
 cd ${current_dir}
 
+#setup service to autostart
+./install-service.sh
+
 echo "it was a pleasure"
 exit 0
